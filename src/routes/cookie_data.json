@@ -1,9 +1,9 @@
 {
-	"cookies": {
-		"Power": "To claim the cookie of power the block number must end in 420.",
-		"Wisdom": "To claim the cookie of wisdom, submit a number. If the hash of that number is greater than the hash of the previous number, you get the cookie.",
-		"Time": "Anyone can claim this cookie if it has been greater than 1 week since the last claim date.",
-		"War": "If the block number is a even number, anyone can claim this cookie.",
-		"Wealth": " Anyone can claim this cookie if they spend more than the previous claimer."
-	}
+  "cookies": {
+    "Power": "To claim the cookie of power the block number must end in 420.",
+    "Wisdom": "To claim the cookie of wisdom, submit a number. If the hash of that number is greater than the hash of the previous number, you get the cookie.",
+    "Time": "Anyone can claim this cookie if it has been greater than 1 week since the last claim date.",
+    "War": "If the block number is a even number, anyone can claim this cookie.",
+    "Wealth": " Anyone can claim this cookie if they spend more than the previous claimer."
+  }
 }
