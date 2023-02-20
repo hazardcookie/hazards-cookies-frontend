@@ -1,7 +1,7 @@
-export interface Cookie_metadata {
+export type Cookie_metadata = {
   name: string;
   image: string;
-}
+};
 
 export type Cookie_collection = {
   Power: { owner: string; metadata: Cookie_metadata };

@@ -8,20 +8,16 @@
     return address.slice(0, 7) + '...' + address.slice(-3);
   }
 
-  // fetches data from server
+  // fetches data from server and destructures it
   export let data: PageData;
-
-  // destructures data
   $: ({ cookies } = data);
 
-  // sets visible to false to hide cookies with transition
+  // sets visible to false to hide nfts before they are fetched in onMount
+  // sets cookie_owners to empty array to hold shortened eth addresses
   let visible = false;
-
-  // array to store shortened eth addresses
   let cookie_owners: string[] = [];
 
-  // fetch cookies and shortens eth address
-  // sets visible to true to show cookies with transition
+  // fetch cookie nfts on mount and shortens the owner's eth addresses
   onMount(async () => {
     let i = 0;
     for (const cookie in cookies) {
