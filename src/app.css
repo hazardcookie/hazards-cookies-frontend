@@ -1,0 +1,38 @@
+body {
+  padding-right: 10rem;
+  padding-left: 10rem;
+  max-width: 100vw;
+  background: linear-gradient(90deg, #3a0ca3 0%, #7209b7 50%);
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 900px) {
+  body {
+    padding-top: 8rem;
+    padding-right: 15rem;
+    padding-left: 15rem;
+  }
+}
+
+h1,
+h2 {
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+/* mobile friendly for screens under 500px */
+@media only screen and (max-width: 600px) {
+  body {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    overflow-x: hidden;
+    overflow: hidden;
+  }
+}
