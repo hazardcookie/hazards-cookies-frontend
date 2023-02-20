@@ -1,3 +1,4 @@
+// This file is used to get the data from the contract and return it as a json object
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch, depends }) => {

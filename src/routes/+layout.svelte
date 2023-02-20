@@ -3,9 +3,12 @@
   import { contract } from '../constants';
   import cookies from './cookie_data.json';
   import { fly } from 'svelte/transition';
+
+  const cookie_contract = contract;
+
+  // loads cookie titles and instruction data from json file
   const cookie_titles = Object.keys(cookies.cookies);
   const cookie_data = Object.values(cookies.cookies);
-  const cookie_contract = contract;
 </script>
 
 <div class="dapp_container">

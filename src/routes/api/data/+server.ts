@@ -1,9 +1,12 @@
+// This file is used to get the data from the contract and return it as a json object
+import { ethers } from 'ethers';
+import { json } from '@sveltejs/kit';
+import abi from '../../cookie_abi.json';
+import { contract, rpc } from '../../../constants';
+
+// Import types
 import type { RequestHandler } from './$types';
 import type { Cookie_metadata } from '../../../types';
-import { json } from '@sveltejs/kit';
-import { contract } from '../../../constants';
-import abi from '../../cookie_abi.json';
-import { ethers } from 'ethers';
 import type { Cookie_collection } from '../../../types';
 
 // gets encoded svg from contract and decodes it to a string and returns it
@@ -18,8 +21,12 @@ function getTokenSVG(svg: string): Cookie_metadata {
 export const GET: RequestHandler = async () => {
   const cookies_abi = abi;
   const contract_address = contract;
-  const provider = new ethers.JsonRpcProvider('https://rpc-evm-sidechain.xrpl.org');
+
+  // connects to the contract
+  const provider = new ethers.JsonRpcProvider(rpc);
   const HazardsCookies = new ethers.Contract(contract_address, cookies_abi, provider);
+
+  // gets the metadata and owner of all the keys
   const multicall = await HazardsCookies.getCookieURIsAndOwners();
   const metadata_multicall = multicall[0];
   const owners_multicall = multicall[1];

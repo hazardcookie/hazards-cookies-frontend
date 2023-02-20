@@ -2,14 +2,23 @@
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import type { PageData } from './$types';
-  export let data: PageData;
-  $: ({ cookies } = data);
-  let visible = false;
-  let cookie_owners: string[] = [];
 
+  // shortens eth address
   function eth_address_shortener(address: string) {
     return address.slice(0, 7) + '...' + address.slice(-3);
   }
+
+  // fetches data from server
+  export let data: PageData;
+
+  // destructures data
+  $: ({ cookies } = data);
+
+  // sets visible to false to hide cookies with transition
+  let visible = false;
+
+  // array to store shortened eth addresses
+  let cookie_owners: string[] = [];
 
   // fetch cookies and shortens eth address
   // sets visible to true to show cookies with transition
