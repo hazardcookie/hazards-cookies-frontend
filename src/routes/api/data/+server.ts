@@ -33,8 +33,8 @@ export const GET: RequestHandler = async () => {
 
   // gets the metadata and owner of all the keys
   const multicall = await HazardsCookies.getCookieURIsAndOwners();
-  const metadata_multicall = multicall[0];
   const owners_multicall = multicall[1];
+  const metadata_multicall = await multicall[0];
 
   // loops through the 5 keys and pushes the promises to the array
   for (let i = 0; i < 5; i++) {
@@ -42,10 +42,8 @@ export const GET: RequestHandler = async () => {
     metadata_promises.push(decodeMetadata(metadata_multicall[i]));
   }
 
-  const [owners, metadata] = await Promise.all([
-    owners_promises as string[],
-    metadata_promises as Cookie_metadata[]
-  ]);
+  // waits for all the promises to resolve
+  const [owners, metadata] = await Promise.all([owners_promises, metadata_promises]);
 
   // loads all the keys and assigns them to a loaded_keys variable
   const loaded_keys: Cookie_collection = {
