@@ -13,8 +13,8 @@ function eth_address_shortener(address: string) {
 }
 
 // takes encoded metadata json and returns a json object
-function decode_metadata(ecoded_json: string): Cookie_metadata {
-  const buff_json = Buffer.from(ecoded_json.substring(29), 'base64').toString();
+function decode_metadata(encoded_json: string): Cookie_metadata {
+  const buff_json = Buffer.from(encoded_json.substring(29), 'base64').toString();
   const result = JSON.parse(buff_json);
   const new_json = { name: result.name, image: result.image };
   return new_json;
