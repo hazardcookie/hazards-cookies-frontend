@@ -1,23 +1,23 @@
 // This file is used to get the data from the contract and return it as a json object
 import { ethers } from 'ethers';
 import { json } from '@sveltejs/kit';
-import abi from '../../cookie_abi.json';
 import { contract, rpc } from '../../../constants';
+import abi from '../../../constants/cookie_abi.json';
 import type { RequestHandler } from './$types';
-import type { Cookie_metadata } from '../../../types';
-import type { Cookie_collection } from '../../../types';
-
-// shortens eth address to 7 charactersfor the UI
-function eth_address_shortener(address: string) {
-  return address.slice(0, 7) + '...' + address.slice(-3);
-}
+import { eth_address_shortener } from '../../../lib/utils';
+import type { Cookie_metadata, Cookie_collection } from '../../../types';
 
 // takes encoded metadata json and returns a json object
 function decode_metadata(encoded_json: string): Cookie_metadata {
-  const buff_json = Buffer.from(encoded_json.substring(29), 'base64').toString();
-  const result = JSON.parse(buff_json);
-  const new_json = { name: result.name, image: result.image };
-  return new_json;
+  try {
+    const buff_json = Buffer.from(encoded_json.substring(29), 'base64').toString();
+    const result = JSON.parse(buff_json);
+    const new_json = { name: result.name, image: result.image };
+    return new_json;
+  } catch (error) {
+    console.log('error decoding metadata', error);
+    return { name: 'unknown', image: 'unknown' };
+  }
 }
 
 // gets the keys from the contract and returns them as a json object
