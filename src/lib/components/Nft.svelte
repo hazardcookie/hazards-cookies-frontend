@@ -4,7 +4,6 @@
   export let cookie: string;
   export let cookie_owners: string[];
   export let i: number;
-  export let ssr = true;
 </script>
 
 <div class="cookie_display" transition:fly={{ y: 200, duration: 2000, delay: i * 200 }}>
