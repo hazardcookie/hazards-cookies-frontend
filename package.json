@@ -1,6 +1,6 @@
 {
-	"name": "keys-of-xrpl",
-	"version": "0.0.1",
+	"name": "hazards-cookies-frontend",
+	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
