@@ -1,4 +1,5 @@
-# Installing 
+# Installing
+
 `pnpm install` or `npm install`
 
 ## Developing
