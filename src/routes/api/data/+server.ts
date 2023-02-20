@@ -1,8 +1,8 @@
 // This file is used to get the data from the contract and return it as a json object
 import { ethers } from 'ethers';
 import { json } from '@sveltejs/kit';
-import { contract, rpc } from '../../../constants';
-import abi from '../../../constants/cookie_abi.json';
+import { contract, rpc } from '../../../lib/constants';
+import abi from '../../../lib/constants/cookie_abi.json';
 import type { RequestHandler } from './$types';
 import { eth_address_shortener } from '../../../lib/utils';
 import type { Cookie_metadata, Cookie_collection } from '../../../types';

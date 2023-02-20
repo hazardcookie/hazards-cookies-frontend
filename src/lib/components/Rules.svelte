@@ -1,8 +1,8 @@
 <script lang="ts">
   import '../../app.css';
   import { fly } from 'svelte/transition';
-  import { contract } from '../../constants';
-  import content from '../../constants/content.json';
+  import { contract } from '../constants';
+  import content from '../constants/content.json';
   export const ssr = false;
   const cookie_titles = Object.keys(content.cookies);
   const cookie_data = Object.values(content.cookies);
