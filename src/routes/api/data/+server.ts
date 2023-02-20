@@ -33,7 +33,7 @@ export const GET: RequestHandler = async () => {
 
   // gets the metadata and owner of all the keys
   const multicall = await HazardsCookies.getCookieURIsAndOwners();
-  const owners_multicall = multicall[1];
+  const owners_multicall = await multicall[1];
   const metadata_multicall = await multicall[0];
 
   // loops through the 5 keys and pushes the promises to the array

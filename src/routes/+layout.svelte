@@ -4,7 +4,7 @@
   import cookies from './cookie_data.json';
   import { fly } from 'svelte/transition';
 
-  const cookie_contract = contract;
+  export const optimistic = true;
 
   // loads cookie titles and instruction data from json file
   const cookie_titles = Object.keys(cookies.cookies);
@@ -21,7 +21,7 @@
     {/each}
 
     <p>
-      <a href="https://evm-sidechain.xrpl.org/address/{cookie_contract}">{cookie_contract}</a>
+      <a href="https://evm-sidechain.xrpl.org/address/{contract}">{contract}</a>
     </p>
   </div>
 
