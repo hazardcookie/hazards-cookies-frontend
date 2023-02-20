@@ -13,7 +13,7 @@ function eth_address_shortener(address: string) {
 }
 
 // takes encoded metadata json and returns a json object
-function decodeMetadata(ecoded_json: string): Cookie_metadata {
+function decode_metadata(ecoded_json: string): Cookie_metadata {
   const buff_json = Buffer.from(ecoded_json.substring(29), 'base64').toString();
   const result = JSON.parse(buff_json);
   const new_json = { name: result.name, image: result.image };
@@ -39,7 +39,7 @@ export const GET: RequestHandler = async () => {
   // loops through the 5 keys and pushes the promises to the array
   for (let i = 0; i < 5; i++) {
     owners_promises.push(eth_address_shortener(owners_multicall[i]));
-    metadata_promises.push(decodeMetadata(metadata_multicall[i]));
+    metadata_promises.push(decode_metadata(metadata_multicall[i]));
   }
 
   // waits for all the promises to resolve
