@@ -1,11 +1,8 @@
 <script lang="ts">
   import '../app.css';
-  import Rules from '../lib/components/Rules.svelte';
 </script>
 
 <div class="dapp_container">
-  <Rules />
-
   <slot />
 </div>
 

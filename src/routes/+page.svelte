@@ -3,7 +3,7 @@
   import type { PageData } from './$types';
   import { eth_address_shortener } from '../lib/utils';
   import Display from '../lib/components/Display.svelte';
-  export const optimistic = true;
+  import Rules from '../lib/components/Rules.svelte';
 
   // fetches data from server and destructures it
   // onMount: NFT transition effect triggers. Also shortens the owner's eth addresses.
@@ -22,4 +22,7 @@
   });
 </script>
 
+<Rules />
+
 <Display {cookies} {cookie_owners} {visible} />
+
