@@ -2,7 +2,7 @@
   import '../../app.css';
   import { fly } from 'svelte/transition';
   import { contract } from '../constants';
-  import content from '../constants/content.json';
+  export let content: any;
   export const ssr = true;
   const cookie_titles = Object.keys(content.cookies);
   const cookie_data = Object.values(content.cookies);

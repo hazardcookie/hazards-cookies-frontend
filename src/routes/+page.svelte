@@ -4,7 +4,7 @@
   import { eth_address_shortener } from '../lib/utils';
   import Display from '../lib/components/Display.svelte';
   import Rules from '../lib/components/Rules.svelte';
-
+  import content from '../lib/constants/content.json';
   // fetches data from server and destructures it
   // onMount: NFT transition effect triggers. Also shortens the owner's eth addresses.
   export let data: PageData;
@@ -22,7 +22,6 @@
   });
 </script>
 
-<Rules />
+<Rules {content} />
 
 <Display {cookies} {cookie_owners} {visible} />
-

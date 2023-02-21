@@ -1,5 +1,6 @@
 <script lang="ts">
   import '../app.css';
+  export const csr = true;
 </script>
 
 <div class="dapp_container">
