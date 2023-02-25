@@ -14,7 +14,7 @@ function decode_metadata(encoded_json: string): Cookie_metadata {
   try {
     const buff_json = Buffer.from(encoded_json.substring(29), 'base64').toString();
     const result = JSON.parse(buff_json);
-    console.log(result.image)
+    console.log(result.image);
     const new_json = { name: result.name, image: result.image };
     return new_json;
   } catch (error) {

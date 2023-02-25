@@ -1,7 +1,7 @@
 // This file is used to get the data from the contract and return it as a json object
 // Fetches the live owners from the contract
 // Also loads the images from the images.json file to improve performance
-// Currently the evm sidechain devnet nodes are too slow to handle loading 
+// Currently the evm sidechain devnet nodes are too slow to handle loading
 // on chain nfts and metadata quickly
 import { ethers } from 'ethers';
 import { json } from '@sveltejs/kit';
@@ -31,16 +31,16 @@ export const GET: RequestHandler = async () => {
   }
 
   const [owners] = await Promise.all([owners_promises]);
-  
+
   // loads all the keys and assigns them to a loaded_keys variable
   // in this example we are using the images from the images.json file to improve performance
   // but you can also use the metadata from the contract
   const loaded_keys: Cookie_collection = {
-    Power: { owner: owners[0], metadata: { name: "Power", image: images.power }},
-    Wisdom: { owner: owners[1], metadata: { name: "Wisdom", image: images.wisdom }},
-    Time: { owner: owners[2], metadata: { name: "Time", image: images.time }},
-    War: { owner: owners[3], metadata: { name: "War", image: images.war }},
-    Wealth: { owner: owners[4], metadata: { name: "Wealth", image: images.wealth }}
+    Power: { owner: owners[0], metadata: { name: 'Power', image: images.power } },
+    Wisdom: { owner: owners[1], metadata: { name: 'Wisdom', image: images.wisdom } },
+    Time: { owner: owners[2], metadata: { name: 'Time', image: images.time } },
+    War: { owner: owners[3], metadata: { name: 'War', image: images.war } },
+    Wealth: { owner: owners[4], metadata: { name: 'Wealth', image: images.wealth } }
   };
 
   // returns the variable as a json object

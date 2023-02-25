@@ -5,16 +5,20 @@
   import Display from '../lib/components/Display.svelte';
   import Rules from '../lib/components/Rules.svelte';
   import content from '../lib/constants/content.json';
-  // fetches data from server and destructures it
-  // onMount: NFT transition effect triggers. Also shortens the owner's eth addresses.
+
+  // 1. Get the data from the page
   export let data: PageData;
   $: ({ cookies } = data);
+  // 2. Create the state variables
   let visible = false;
   let cookie_owners: string[] = [];
 
+  // NFT transition effect triggers. Also shortens the owner's eth addresses.
   onMount(async () => {
     let i = 0;
+    // Loop through all cookies in the contract
     for (const cookie in cookies) {
+      // Get the owner of the cookie
       cookie_owners[i] = eth_address_shortener(cookies[cookie].owner);
       i++;
     }
@@ -24,5 +28,5 @@
 
 <div class="dapp_container">
   <Rules {content} />
-  <Display {cookies} {cookie_owners} {visible}/>
+  <Display {cookies} {cookie_owners} {visible} />
 </div>
