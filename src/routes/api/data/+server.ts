@@ -1,13 +1,16 @@
 // This file is used to get the data from the contract and return it as a json object
-// Keeping this as a example for future reference
-// Currently the evm sidechain devnet nodes are too slow to use this method
+// Fetches the live owners from the contract
+// Also loads the images from the images.json file to improve performance
+// Currently the evm sidechain devnet nodes are too slow to handle loading 
+// on chain nfts and metadata quickly
 import { ethers } from 'ethers';
 import { json } from '@sveltejs/kit';
 import { contract, rpc } from '../../../lib/constants';
 import { eth_address_shortener } from '../../../lib/utils';
 import abi from '../../../lib/constants/cookie_abi.json';
+import images from '../../../lib/constants/images.json';
 import type { RequestHandler } from './$types';
-import type {  Owners } from '../../../lib/types';
+import type { Cookie_collection } from '../../../lib/types';
 
 // gets the keys from the contract and returns them as a json object
 export const GET: RequestHandler = async () => {
@@ -27,16 +30,17 @@ export const GET: RequestHandler = async () => {
     owners_promises.push(eth_address_shortener(fetch_owners[i]));
   }
 
-  // waits for all the promises to resolve
   const [owners] = await Promise.all([owners_promises]);
-
+  
   // loads all the keys and assigns them to a loaded_keys variable
-  const loaded_keys: Owners = {
-    Power: owners[0],
-    Wisdom: owners[1],
-    Time: owners[2],
-    War: owners[3],
-    Wealth: owners[4]
+  // in this example we are using the images from the images.json file to improve performance
+  // but you can also use the metadata from the contract
+  const loaded_keys: Cookie_collection = {
+    Power: { owner: owners[0], metadata: { name: "Power", image: images.power }},
+    Wisdom: { owner: owners[1], metadata: { name: "Wisdom", image: images.wisdom }},
+    Time: { owner: owners[2], metadata: { name: "Time", image: images.time }},
+    War: { owner: owners[3], metadata: { name: "War", image: images.war }},
+    Wealth: { owner: owners[4], metadata: { name: "Wealth", image: images.wealth }}
   };
 
   // returns the variable as a json object
