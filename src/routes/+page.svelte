@@ -5,6 +5,7 @@
   import Display from '../lib/components/Display.svelte';
   import Rules from '../lib/components/Rules.svelte';
   import content from '../lib/constants/content.json';
+  import { browser } from '$app/environment';
   // fetches data from server and destructures it
   // onMount: NFT transition effect triggers. Also shortens the owner's eth addresses.
   export let data: PageData;
@@ -22,6 +23,12 @@
   });
 </script>
 
-<Rules {content} />
+{#if !browser}
+  <div class="loading"><Rules {content} /></div>
+{:else}
+  <div class="dapp_container">
+    <Rules {content} />
+    <Display {cookies} {cookie_owners} {visible} />
+  </div>
+{/if}
 
-<Display {cookies} {cookie_owners} {visible} />
