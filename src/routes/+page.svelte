@@ -26,7 +26,5 @@
   });
 </script>
 
-<div class="dapp_container">
-  <Rules {content} />
-  <Display {cookies} {cookie_owners} {visible} />
-</div>
+<Rules {content} />
+<Display {cookies} {cookie_owners} {visible} />
