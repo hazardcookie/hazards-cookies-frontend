@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { PageData } from './$types';
-  import { eth_address_shortener } from '../lib/utils';
   import Display from '../lib/components/Display.svelte';
   import Rules from '../lib/components/Rules.svelte';
   import content from '../lib/constants/content.json';
@@ -19,7 +18,7 @@
     // Loop through all cookies in the contract
     for (const cookie in cookies) {
       // Get the owner of the cookie
-      cookie_owners[i] = eth_address_shortener(cookies[cookie].owner);
+      cookie_owners[i] = cookies[cookie].owner;
       i++;
     }
     visible = true;
