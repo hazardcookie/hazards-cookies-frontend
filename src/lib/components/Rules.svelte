@@ -10,7 +10,10 @@
 
 <div class="rules" transition:fly={{ y: -200, duration: 2000 }}>
   <p class="header_title">{content.name}</p>
-  <p>Need funds? Visit <a href="https://faucet-frontend-mocha.vercel.app/">Cookie's Faucet</a> for devnet XRP.</p>
+  <p>
+    Need funds? Visit <a href="https://faucet-frontend-mocha.vercel.app/">Cookie's Faucet</a> for devnet
+    XRP.
+  </p>
   {#each cookie_titles as cookie, i}
     <p>
       <span class="cookie_titles">{cookie}</span>: {cookie_data[i]}
@@ -23,13 +26,13 @@
 
 <style>
   a {
-    color: #2bd2ef;;
+    color: #2bd2ef;
     text-decoration: none;
     transition: 0.5s;
     font-size: 0.9rem;
   }
   a:hover {
-    color: #f578ba;;
+    color: #f578ba;
     text-decoration: none;
   }
   .header_title {
@@ -43,7 +46,7 @@
   .cookie_titles {
     margin: 0;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
   }
   @media only screen and (min-width: 900px) {
