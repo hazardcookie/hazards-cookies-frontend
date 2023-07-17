@@ -11,7 +11,7 @@
 <div class="rules" transition:fly={{ y: -200, duration: 2000 }}>
   <p class="header_title">{content.name}</p>
   <p>
-    Need funds? Visit <a href="https://faucet-frontend-mocha.vercel.app/">Cookie's Faucet</a> for devnet
+    Need funds? Visit the <a href="https://bridge.devnet.xrpl.org/">Faucet</a> for devnet
     XRP.
   </p>
   {#each cookie_titles as cookie, i}

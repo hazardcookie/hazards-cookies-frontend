@@ -5,12 +5,12 @@
 // on chain nfts and metadata quickly
 import { ethers } from 'ethers';
 import { json } from '@sveltejs/kit';
-import { contract, rpc } from '../../../lib/constants';
-import { eth_address_shortener } from '../../../lib/utils';
-import abi from '../../../lib/constants/cookie_abi.json';
-import images from '../../../lib/constants/images.json';
+import { contract, rpc } from '$lib/constants';
+import { eth_address_shortener } from '$lib/utils';
+import abi from '$lib/constants/cookie_abi.json';
+import images from '$lib/constants/images.json';
 import type { RequestHandler } from './$types';
-import type { Cookie_collection } from '../../../lib/types';
+import type { Cookie_collection } from '$lib/types';
 
 // gets the keys from the contract and returns them as a json object
 export const GET: RequestHandler = async () => {
